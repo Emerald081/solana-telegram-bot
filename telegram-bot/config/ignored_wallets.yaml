@@ -1,0 +1,74 @@
+# ============================================================
+# Ignored / Blacklisted Wallets
+# ============================================================
+# Wallets listed here are never tracked regardless of funding.
+# Add known bots, market makers, arbitrage wallets, and
+# infrastructure addresses here.
+#
+# Format:
+#   - address: <base58 Solana address>
+#     label:   <human-readable name>
+#     reason:  exchange_operational | market_maker | arbitrage_bot |
+#              liquidity_provider | infrastructure | other
+# ============================================================
+
+wallets:
+
+  # ── Solana System / Infrastructure ─────────────────────────
+
+  - address: "11111111111111111111111111111111"
+    label: "System Program"
+    reason: infrastructure
+
+  - address: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    label: "SPL Token Program"
+    reason: infrastructure
+
+  - address: "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    label: "Token-2022 Program"
+    reason: infrastructure
+
+  - address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJe1bKd"
+    label: "Associated Token Account Program"
+    reason: infrastructure
+
+  - address: "ComputeBudget111111111111111111111111111111111"
+    label: "Compute Budget Program"
+    reason: infrastructure
+
+  - address: "SysvarRent111111111111111111111111111111111"
+    label: "Sysvar Rent"
+    reason: infrastructure
+
+  - address: "SysvarC1ock11111111111111111111111111111111"
+    label: "Sysvar Clock"
+    reason: infrastructure
+
+  # ── Known Exchange Operational / Treasury Wallets ──────────
+  # These are exchange-controlled wallets used for internal ops,
+  # not customer withdrawals — funding from these is noise.
+
+  - address: "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9"
+    label: "Binance Hot Wallet (internal)"
+    reason: exchange_operational
+
+  # ── Known Market Makers ────────────────────────────────────
+  # Add known Wintermute, Jump, Alameda remnants etc. here
+
+  # - address: "ExampleMarketMakerAddress11111111111111111111"
+  #   label: "Wintermute"
+  #   reason: market_maker
+
+  # ── Arbitrage Bots ─────────────────────────────────────────
+
+  # - address: "ExampleArbitrageBot111111111111111111111111111"
+  #   label: "Known arb bot"
+  #   reason: arbitrage_bot
+
+  # ── Liquidity Providers ────────────────────────────────────
+
+  # - address: "ExampleLiquidityProvider1111111111111111111111"
+  #   label: "Raydium LP vault"
+  #   reason: liquidity_provider
+
+  # ── Add more wallets below ─────────────────────────────────

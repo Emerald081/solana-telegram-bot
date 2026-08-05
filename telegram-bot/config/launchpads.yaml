@@ -1,0 +1,139 @@
+# ============================================================
+# Launchpad & DEX Program IDs
+# ============================================================
+# To add a new launchpad: copy any block, fill in the program_id,
+# set verified: true, and restart the bot. No code changes needed.
+#
+# placeholder: true  → program ID not yet confirmed; skipped at runtime
+# verified: true     → confirmed on-chain; actively monitored
+# ============================================================
+
+launchpads:
+
+  # ── Launchpads ─────────────────────────────────────────────
+
+  pump_fun:
+    name: "Pump.fun"
+    program_id: "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+    verified: true
+    url: "https://pump.fun"
+
+  letsbonk:
+    name: "LetsBonk (Bonk.fun)"
+    program_id: "BonkLncPakmFXzE4yLMtjhBJMmhxLWDJDDKy7vBHYJkm"
+    verified: false
+    placeholder: true
+    note: "Verify at https://solscan.io/account/bonk.fun deployer"
+    url: "https://letsbonk.fun"
+
+  raydium_launchlab:
+    name: "Raydium LaunchLab"
+    program_id: "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj"
+    verified: false
+    placeholder: true
+    note: "Verify Raydium LaunchLab program ID on https://raydium.io"
+    url: "https://raydium.io/launchpad"
+
+  moonshot:
+    name: "Moonshot"
+    program_id: "MoonCVVNZFSYkqNXP6bxHLPL6QQtGuDfdGjD4xKkMmM"
+    verified: false
+    placeholder: true
+    note: "Verify at https://dexscreener.com/moonshot or solscan"
+    url: "https://dexscreener.com/moonshot"
+
+  boop_fun:
+    name: "Boop.fun"
+    program_id: "boop8hVMSARh3SeCbC7MiMSKZQbXRFdYVURSBRxXNqW"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a boop.fun launch tx on Solscan"
+    url: "https://boop.fun"
+
+  jupiter_studio:
+    name: "Jupiter Studio"
+    program_id: "jupoNjAxXgZ4rjzxzPMP4XXi1FMXPMrdFmwkWxNNQJV"
+    verified: false
+    placeholder: true
+    note: "Verify at https://jup.ag or Jupiter GitHub"
+    url: "https://jup.ag"
+
+  believe:
+    name: "Believe"
+    program_id: "BELiEveSX5DcMJLMnhVzCmjA7HrxWtBpFDzBtbLPCWE"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Believe launch tx on Solscan"
+    url: "https://believe.app"
+
+  bags:
+    name: "Bags"
+    program_id: "BAGSHNkuEVXFumed9TnUMXBagfAhY1L3ZAXmmSADnEbX"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Bags launch tx on Solscan"
+    url: "https://bags.fm"
+
+  moon_it:
+    name: "Moon.it"
+    program_id: "MoonitD8xkyL2hpWk3YxkKFBt3hJCgAZZVWrVxKQpbV"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Moon.it tx on Solscan"
+    url: "https://moon.it"
+
+  sugar_money:
+    name: "Sugar.money"
+    program_id: "SugarLaunchpadProgramIdPlaceholder111111111111"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Sugar.money tx on Solscan"
+    url: "https://sugar.money"
+
+  heaven_dex:
+    name: "Heaven DEX"
+    program_id: "HeavenDEXProgramIdPlaceholder1111111111111111"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Heaven DEX tx on Solscan"
+    url: "https://heaven.so"
+
+  wavebreak:
+    name: "Wavebreak"
+    program_id: "WavebreakLaunchProgramIdPlaceholder1111111111"
+    verified: false
+    placeholder: true
+    note: "Find program ID from a Wavebreak tx on Solscan"
+    url: "https://wavebreak.xyz"
+
+  # ── DEXes / Liquidity Platforms ────────────────────────────
+
+  pumpswap:
+    name: "PumpSwap"
+    program_id: "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
+    verified: true
+    url: "https://pump.fun"
+
+  raydium_amm:
+    name: "Raydium AMM"
+    program_id: "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
+    verified: true
+    url: "https://raydium.io"
+
+  raydium_clmm:
+    name: "Raydium CLMM"
+    program_id: "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK"
+    verified: true
+    url: "https://raydium.io"
+
+  meteora:
+    name: "Meteora"
+    program_id: "LBUZKhRxPF3XUpBCjp4YzTKgLe4ggpXxiKzU9Bx4KuY"
+    verified: true
+    url: "https://meteora.ag"
+
+  meteora_pools:
+    name: "Meteora Dynamic Pools"
+    program_id: "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB"
+    verified: true
+    url: "https://meteora.ag"

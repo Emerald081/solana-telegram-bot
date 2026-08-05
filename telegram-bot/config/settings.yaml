@@ -1,0 +1,103 @@
+# ============================================================
+# Solana Tracker Bot — Main Configuration
+# Edit this file to tune behavior without touching any code.
+# ============================================================
+
+# ── RPC / WebSocket Endpoints ────────────────────────────────
+#
+# RECOMMENDED SERVICE: Helius (https://helius.dev)
+#   • Best Solana-native WebSocket support (logsSubscribe)
+#   • Parsed transaction API (human-readable instructions)
+#   • Reliable uptime, generous free tier
+#
+# ALTERNATIVES: QuickNode (quicknode.com), Alchemy (alchemy.com)
+#
+# Sign up at helius.dev → create an API key → paste below,
+# or set the HELIUS_API_KEY environment secret and leave
+# the placeholder — the bot will substitute it automatically.
+#
+rpc:
+  http_endpoint: "https://mainnet.helius-rpc.com/?api-key={HELIUS_API_KEY}"
+  ws_endpoint:   "wss://mainnet.helius-rpc.com/?api-key={HELIUS_API_KEY}"
+  # Fallback public endpoint (rate-limited, not for production)
+  fallback_http: "https://api.mainnet-beta.solana.com"
+  # Max concurrent HTTP RPC requests
+  max_concurrent_rpc: 10
+
+# ── Funding Filter ────────────────────────────────────────────
+funding:
+  min_sol: 1.0     # Minimum SOL to qualify as a funding event
+  max_sol: 20.0    # Maximum SOL to qualify as a funding event
+
+# ── Candidate Detection ───────────────────────────────────────
+candidate:
+  # Maximum prior transactions a wallet can have to be a candidate
+  max_historical_txs: 20
+  # Wallet age threshold in days (wallets younger than this get bonus score)
+  new_wallet_age_days: 7
+
+# ── Tracking Rules ────────────────────────────────────────────
+tracking:
+  max_days: 60                  # Stop tracking after this many days
+  max_unrelated_transfers: 3    # Disqualify after this many unrelated incoming SOL
+  # Timer is reset to max_days when a launchpad interaction is detected
+
+# ── Telegram ──────────────────────────────────────────────────
+telegram:
+  chat_id: 6832137569
+
+# ── Database ──────────────────────────────────────────────────
+database:
+  # Path relative to the telegram-bot/ directory
+  path: "tracker.db"
+
+# ── Exchange Wallets Source ───────────────────────────────────
+# Path relative to the project root (where the bot is launched from)
+exchange_wallets_file: "exchange_wallets.json"
+
+# ── One-Hop Funding Chain Detection ──────────────────────────
+#
+# When a tracked candidate wallet forwards most of its received SOL
+# to another new/low-activity wallet shortly after being funded,
+# the recipient is treated as the likely developer wallet and added
+# as a candidate automatically.
+#
+hop_detection:
+  enabled: true
+  # Minimum fraction of the original funding amount that must be forwarded
+  # (0.70 = 70% of received SOL must go to the hop recipient)
+  min_forwarded_fraction: 0.70
+  # Maximum hours after initial funding for the forward to count as a hop
+  max_hours_after_funding: 24
+
+# ── Preparation Activity Detection ────────────────────────────
+#
+# Meaningful preparation activity pauses the 60-day expiry countdown.
+# Examples: ATA creation, token account setup, multi-wallet distribution.
+# Detection does NOT generate any Telegram alert.
+#
+preparation_activity:
+  # Hours to pause expiry after preparation activity is detected.
+  # Timer extends by this duration each time prep activity is seen.
+  pause_expiry_hours: 48
+
+# ── High Priority Monitoring ──────────────────────────────────
+#
+# Wallets that have interacted with a launchpad are upgraded to
+# high_priority. They get supplemental HTTP polling in addition to
+# the real-time WebSocket subscription, as a backup.
+#
+high_priority:
+  # Seconds between HTTP backup-polls for high-priority wallets
+  poll_interval_seconds: 30
+
+# ── Maintenance ───────────────────────────────────────────────
+maintenance:
+  # How often to run wallet expiry checks (seconds)
+  interval_seconds: 3600
+  # Purge processed-signatures older than this many days
+  signature_retention_days: 7
+
+# ── Logging ───────────────────────────────────────────────────
+logging:
+  level: "INFO"   # DEBUG | INFO | WARNING | ERROR
