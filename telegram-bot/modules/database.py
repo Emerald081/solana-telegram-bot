@@ -70,7 +70,6 @@ CREATE TABLE IF NOT EXISTS processed_signatures (
 );
 
 CREATE INDEX IF NOT EXISTS idx_tw_status    ON tracked_wallets(status);
-CREATE INDEX IF NOT EXISTS idx_tw_priority  ON tracked_wallets(priority);
 CREATE INDEX IF NOT EXISTS idx_dh_wallet    ON developer_history(wallet_address);
 CREATE INDEX IF NOT EXISTS idx_ah_wallet    ON alert_history(wallet_address);
 CREATE INDEX IF NOT EXISTS idx_ps_time      ON processed_signatures(processed_at);
