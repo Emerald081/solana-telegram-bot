@@ -33,8 +33,19 @@ funding:
 candidate:
   # Maximum prior transactions a wallet can have to be a candidate
   max_historical_txs: 20
-  # Wallet age threshold in days (wallets younger than this get bonus score)
+
+  # Wallet must be at least 1 minute and no more than 60 days old
+  min_wallet_age_minutes: 1
+  max_wallet_age_days: 60
+
+  # Wallets younger than this get bonus score
   new_wallet_age_days: 7
+
+# ── Tracking Rules ────────────────────────────────────────────
+tracking:
+  max_days: 60
+  max_unrelated_transfers: 3
+  # Timer is reset to max_days when a launchpad interaction is detected
 
 # ── Tracking Rules ────────────────────────────────────────────
 tracking:
