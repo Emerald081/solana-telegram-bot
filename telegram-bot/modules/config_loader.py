@@ -89,7 +89,13 @@ class Config:
     @property
     def max_historical_txs(self) -> int:
         return int(self.settings.get("candidate", {}).get("max_historical_txs", 20))
+    @property
+    def min_wallet_age_minutes(self) -> int:
+        return int(self.settings.get("candidate", {}).get("min_wallet_age_minutes", 1))
 
+    @property
+    def max_wallet_age_days(self) -> int:
+        return int(self.settings.get("candidate", {}).get("max_wallet_age_days", 60))
     @property
     def maintenance_interval(self) -> int:
         return int(self.settings.get("maintenance", {}).get("interval_seconds", 3600))
