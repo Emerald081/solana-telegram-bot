@@ -432,7 +432,18 @@ class CandidateTracker:
             if sigs:
                 oldest_time = sigs[-1].get("blockTime") or funding_time
                 wallet_age_days = max(0.0, (funding_time - oldest_time) / 86400)
+            
+            # Wallet age eligibility: 1 minute to 60 days
+            min_age_days = self.config.min_wallet_age_minutes / 1440
+            max_age_days = self.config.max_wallet_age_days
 
+            if wallet_age_days < min_age_days or wallet_age_days > max_age_days:
+                logger.debug(
+                    f"Hop rejected {hop_addr[:8]}… — wallet age "
+                    f"{wallet_age_days:.4f} days outside "
+                    f"{min_age_days:.4f}–{max_age_days} days"
+                )
+                return
             # Inherit the source wallet's exchange metadata
             exchange_name = source_wallet.get("funding_exchange", "Unknown")
 
